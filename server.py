@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, jsonify;
+from flask_socketio import SocketIO, emit;
+
 from threading import Timer;
 
 import webbrowser;
@@ -11,6 +13,7 @@ import serial;
 
 URL = "http://127.0.0.1:8080"
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 def main_board_find (vendor_id):
   arduino_port = None
@@ -111,4 +114,5 @@ def open_browser():
 if __name__ == '__main__':
   Timer(1, open_browser).start()
     
-  app.run(port=8080, debug=True, use_reloader=False)
+  # app.run(port=8080, debug=True, use_reloader=False)
+  socketio.run(app, port=8080, debug=True, use_reloader=False)

@@ -13,14 +13,19 @@
     <div id="container">
       <div class="reticle-container">
         <div class="pipper"></div>
-        <div class="range-bar"></div>
+        <div class="range-bar" id="range-bar"></div>
         <div class="azimuth-line"></div>
       </div>
     </div>
-    <div id=""></div>
-
-    <script src="{{ url_for('static', filename='/alarms/alarms.js' )}}"></script>
+    <div id="altitude-data" class="text">
+      <div>ALTITUDE: <a id="altitude-reading">NO DATA</a></div>
+      <div>VERTICAL SPEED: <a id="vertical-speed-reading">NO DATA</a></div>
+      <div>AIR SPEED: <a id="air-speed-reading">NO DATA</a></div>
+    </div>
 
     <script src="{{ url_for('static', filename='index.js' )}}"></script>
+
+    <script src="{{ url_for('static', filename='/alarms/alarms.js' )}}"></script>
+    <script src="{{ url_for('static', filename='targeting.js')}}"></script>
   </body>
 </html>

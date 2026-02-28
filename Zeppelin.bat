@@ -10,7 +10,7 @@ if %errorlevel% neq 0 (
   winget install -e --id Python.Python.3.13 --scope machine
 )
 
-python -m pip install pyserial flask requests
+python -m pip install pyserial flask requests flask-socketio
 if %errorlevel% neq 0 (
   set installation_error=1
 )
