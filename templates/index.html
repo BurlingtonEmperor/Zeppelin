@@ -7,10 +7,20 @@
 
     <link href="{{ url_for('static', filename='/fonts/fonts.css' )}}" type="text/css" rel="stylesheet" />
     <link href="{{ url_for('static', filename='index.css' )}}" type="text/css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='targeting.css' )}}" type="text/css" rel="stylesheet" />
   </head>
   <body>
     <div id="container">
-      <p>Test</p>
+      <div class="reticle-container">
+        <div class="pipper"></div>
+        <div class="range-bar"></div>
+        <div class="azimuth-line"></div>
+      </div>
     </div>
+    <div id=""></div>
+
+    <script src="{{ url_for('static', filename='/alarms/alarms.js' )}}"></script>
+
+    <script src="{{ url_for('static', filename='index.js' )}}"></script>
   </body>
 </html>

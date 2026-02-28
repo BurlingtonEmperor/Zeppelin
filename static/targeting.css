@@ -1,0 +1,41 @@
+:root {
+  --hud-color: rgb(136, 238, 195); 
+}
+
+.reticle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 5px var(--hud-color));
+}
+
+.pipper {
+  width: 4px;
+  height: 4px;
+  background-color: var(--hud-color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.range-bar {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--hud-color);
+  border-radius: 50%;
+  position: absolute;
+  /* border-top-color: transparent; */
+  transform: rotate(90deg);
+  mask: conic-gradient(#000 0% 0%, transparent 0% 100%); /* here we can change the second and third 0s to indicate range*/
+  -webkit-mask: conic-gradient(#000 0% 0%, transparent 0% 100%); /* here we can change the second and third 0s to indicate range*/
+}
+
+.azimuth-line {
+  width: 140px;
+  height: 1px;
+  background-color: var(--hud-color);
+  position: absolute;
+  opacity: 0.6;
+}
