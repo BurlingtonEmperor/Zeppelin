@@ -16,13 +16,19 @@
         <div class="range-bar" id="range-bar"></div>
         <div class="azimuth-line"></div>
       </div>
+      <div id="warnings"></div>
     </div>
     <div id="altitude-data" class="text">
       <div>ALTITUDE: <a id="altitude-reading">NO DATA</a></div>
       <div>VERTICAL SPEED: <a id="vertical-speed-reading">NO DATA</a></div>
       <div>AIR SPEED: <a id="air-speed-reading">NO DATA</a></div>
     </div>
-
+    <div id="heading-data" class="text">
+      <div>HEADING: <a id="heading-reading">NO DATA</a></div>
+      <div>COMPASS DIRECTION: <a id="compass-direction-reading">NO DATA</a></div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='socketio.min.js')}}"></script>
     <script src="{{ url_for('static', filename='index.js' )}}"></script>
 
     <script src="{{ url_for('static', filename='/alarms/alarms.js' )}}"></script>

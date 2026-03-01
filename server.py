@@ -32,16 +32,36 @@ def main_board_find (vendor_id):
     
   return arduino_port
 
+def alternate_board_find (vendor_id):
+  arduino_port = None
+  ports = serial.tools.list_ports.comports()
+
+  for port in ports:
+    if port.vid == vendor_id:
+      arduino_port = port.device
+      break
+    elif 'Arduino' in port.description:
+      arduino_port = port.device
+      break
+    
+  if not arduino_port:
+    return None
+    
+  return arduino_port
+
 @app.route('/')
 def index():
   return render_template("index.html")
 
-@app.route('/afind_board', methods=['POST'])
-def afind_board():
-  afind_board_data = request.get_json()
-  custom_vendor_id = afind_board_data.get("vendor_id")
+@socketio.on('check_board_connection')
+def check_board_connection (data):
+  custom_vendor_id = data["vendor_id"]
   
-  return str(alternate_board_find(custom_vendor_id))
+  return {'continue': True, 'status': str(alternate_board_find(custom_vendor_id))}
+
+@socketio.on('check_server_connection')
+def check_server_connection (data):
+  return {'continue': True, 'status': 'success'}
 
 @app.route('/send_signal_to_board', methods=['POST'])
 def send_signal_to_board():

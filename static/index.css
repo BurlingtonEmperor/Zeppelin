@@ -17,6 +17,13 @@ body {
   font-size: 1.5vw;
 }
 
+.warning {
+  border: 1px solid red;
+  color: red;
+  opacity: 0.6;
+  text-align: center;
+}
+
 /* IDs */
 #container {
   position: absolute;
@@ -31,4 +38,15 @@ body {
   position: fixed;
   left: 5px;
   top: 0px;
+}
+
+#heading-data {
+  position: fixed;
+  right: 5px;
+  top: 0px;
+}
+
+#warnings {
+  position: fixed;
+  width: 30%;
 }
